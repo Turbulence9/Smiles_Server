@@ -1,0 +1,15 @@
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable('foodVendors',(t) => {
+  t.increments();
+  t.text('businessName');
+  t.text('firstName');
+  t.text('lastName');
+  t.text('email');
+  t.text('phoneNumber');
+  t.text('hashedPassword');
+});
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable('foodVendors');
+};

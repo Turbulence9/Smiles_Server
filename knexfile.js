@@ -1,14 +1,14 @@
 module.exports = {
   development: {
     client: 'postgres',
-    connection: 'postgres://localhost:5432/donutTycoon-dev'
+    connection: 'postgres://localhost:5432/smiles'
   },
   test: {
     client: 'postgres',
-    connection: 'postgres://localhost:5432/donutTycoon-test'
+    connection: 'postgres://localhost:5432/smiles'
   },
   production: {
-    client: 'postgres',
+    client: 'postgres', 
     connection: process.env.DATABASE_URL
   }
 };
