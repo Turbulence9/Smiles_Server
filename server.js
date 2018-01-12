@@ -6,10 +6,12 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+const auth = require('./routes/auth');
 const foodvendors = require('./routes/foodVendors');
 const volunteers = require('./routes/volunteers');
 const shelters = require('./routes/shelters');
 
+app.use('/auth',auth);
 app.use('/foodvendors',foodvendors);
 // app.use('/volunteers',volunteers);
 // app.use('/shelters',shelters);
