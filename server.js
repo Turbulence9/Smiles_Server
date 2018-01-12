@@ -6,11 +6,13 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-// const donuts = require('./routes/donuts');
-// const shops = require('./routes/shops');
-//
-// app.use('/donuts',donuts);
-// app.use('/shops',shops);
+const foodvendors = require('./routes/foodVendors');
+const volunteers = require('./routes/volunteers');
+const shelters = require('./routes/shelters');
+
+app.use('/foodvendors',foodvendors);
+// app.use('/volunteers',volunteers);
+// app.use('/shelters',shelters);
 
 app.get('/', (req, res) => {
   res.send('hello world!');
