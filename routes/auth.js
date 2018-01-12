@@ -3,7 +3,7 @@ const router = express.Router();
 const knex = require('../db/knex.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-let titles = ['foodvendors','volunteers','shelters'];
+const titles = ['foodvendors','volunteers','shelters'];
 
 router.post('/login', (req, res) => {
   titles.forEach(title => {
@@ -18,7 +18,7 @@ router.post('/login', (req, res) => {
         bcrypt.compare(req.body.password, user.hashedPassword)
         .then((valid) => {
           if (valid) {
-            user.data.title = title;
+            user.title = title;
             res.send(user);
           }
         });
