@@ -6,26 +6,35 @@ const saltRounds = 10;
 const titles = ['foodvendors','volunteers','shelters'];
 
 router.post('/login', (req, res) => {
+  let completed = 0;
   titles.forEach(title => {
-    //connect to current table
     knex(title)
     .where({
-      email: req.body.email,
-    }).first()
+      email: req.body.email
+    })
+    .first()
     .then(user => {
-      //if user has data compare password
-      if (Object.keys(user).length !== 0) {
+      if(user) {
         bcrypt.compare(req.body.password, user.hashedPassword)
         .then((valid) => {
           if (valid) {
             user.title = title;
             res.send(user);
           }
+          completed++;
+          if(completed === titles.length) {
+            res.send('invalid login')
+          }
         });
+      }
+      else {
+        completed++;
+        if(completed === titles.length) {
+          res.send('invalid login')
+        }
       }
     });
   });
-  res.send('invalid login');
 });
 
 module.exports = router;
