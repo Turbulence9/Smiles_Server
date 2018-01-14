@@ -13,8 +13,8 @@ const shelters = require('./routes/shelters');
 
 app.use('/auth',auth);
 app.use('/foodvendors',foodvendors);
-// app.use('/volunteers',volunteers);
-// app.use('/shelters',shelters);
+app.use('/volunteers',volunteers);
+app.use('/shelters',shelters);
 
 app.get('/', (req, res) => {
   res.send('hello world!');

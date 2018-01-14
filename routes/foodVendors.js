@@ -4,31 +4,9 @@ const knex = require('../db/knex.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-router.get('/', (req, res) => {
-  knex('foodvendors').then((foodvendors) => {
-    res.send(foodvendors);
-  });
-});
-
-router.post('/login', (req, res) => {
-  knex('foodvendors')
-  .where({
-    email: req.body.email,
-  }).first()
-  .then(user => {
-    bcrypt.compare(req.body.password, user.hashedPassword)
-    .then((valid) => {
-      if (valid) {
-        res.send(user);
-      } else {
-        res.send('invalid login');
-      }
-    });
-  });
-});
 
 router.post('/signup', (req, res) => {
-  knex('foodvendors')
+  knex('emails')
   .where({email:req.body.email})
   .then(email => {
     if(email.length === 0){
@@ -44,7 +22,14 @@ router.post('/signup', (req, res) => {
           hashedPassword: hash,
         })
         .then(() => {
-          res.send('user added');
+          knex('emails')
+          .insert({
+            title: 'foodvendors',
+            email: req.body.email,
+          })
+          .then(() => {
+            res.send('user added');
+          });
         });
       });
     } else {
