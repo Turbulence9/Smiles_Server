@@ -24,6 +24,8 @@ router.post('/login', (req, res) => {
             user.currentPage = account.title;
             delete user.hashedPassword;
             res.send(user);
+          } else {
+            res.send('invalid login');
           }
         });
       });
