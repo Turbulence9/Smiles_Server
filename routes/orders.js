@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   knex('orders')
-  .returning('*')
   .insert({
     meals: req.body.meals,
     businessName : req.body.businessName,
@@ -23,8 +22,11 @@ router.post('/', (req, res) => {
     pickupDeadline : req.body.pickupDeadline,
     status : 'awaiting volunteer',
   })
-  .then(orders => {
-    res.send(orders);
+  .then(() => {
+    knex('orders')
+    .then(orders => {
+      res.send(orders);
+    });
   });
 });
 
