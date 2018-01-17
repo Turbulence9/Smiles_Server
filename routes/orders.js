@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   knex('orders')
+  .returning('*')
   .insert({
     meals: req.body.meals,
     businessName : req.body.businessName,
