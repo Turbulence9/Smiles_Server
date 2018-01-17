@@ -7,11 +7,13 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 const auth = require('./routes/auth');
+const orders = require('./routes/orders');
 const foodvendors = require('./routes/foodVendors');
 const volunteers = require('./routes/volunteers');
 const shelters = require('./routes/shelters');
 
 app.use('/auth',auth);
+app.use('/orders',orders);
 app.use('/foodvendors',foodvendors);
 app.use('/volunteers',volunteers);
 app.use('/shelters',shelters);
