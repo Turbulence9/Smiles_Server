@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
   t.text('description');
   t.text('vendorLocation');
   t.text('shelterLocation');
-  t.dateTime('pickupDeadline');
+  t.text('pickupDeadline');
   t.text('status');
 });
 };
