@@ -23,10 +23,7 @@ router.post('/', (req, res) => {
     status : 'awaiting volunteer',
   })
   .then(() => {
-    knex('orders')
-    .then(orders => {
-      res.send(orders);
-    });
+    res.send('Order added');
   });
 });
 
