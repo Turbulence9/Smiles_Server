@@ -27,4 +27,14 @@ router.post('/', (req, res) => {
   });
 });
 
+router.delete('/:id', (req, res) => {
+  knex('orders')
+  .where({id: req.params.id})
+  .first()
+  .del()
+  .then(() => {
+    res.send('Order deleted');
+  })
+})
+
 module.exports = router;
