@@ -6,8 +6,10 @@ exports.up = function(knex, Promise) {
   t.text('shelterName');
   t.text('volunteerName');
   t.text('description');
-  t.text('vendorLocation');
-  t.text('shelterLocation');
+  t.decimal('vendorLat');
+  t.decimal('vendorLng');
+  t.decimal('shelterLat');
+  t.decimal('shelterLng');
   t.text('pickupDeadline');
   t.text('status');
 });
