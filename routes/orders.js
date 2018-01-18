@@ -17,8 +17,10 @@ router.post('/', (req, res) => {
     shelterName : null,
     volunteerName : null,
     description : req.body.description,
-    vendorLocation : null,
-    shelterLocation : null,
+    vendorLat: req.body.vendorLat,
+    vendorLng: req.body.vendorLng,
+    shelterLat: null,
+    shelterLng: null,
     pickupDeadline : req.body.pickupDeadline,
     status : 'awaiting volunteer',
   })

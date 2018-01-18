@@ -2,6 +2,8 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('shelters',(t) => {
   t.increments();
   t.text('shelterName');
+  t.decimal('lat');
+  t.decimal('lng');
   t.text('firstName');
   t.text('lastName');
   t.text('email');
