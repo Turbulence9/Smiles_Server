@@ -15,6 +15,8 @@ router.post('/signup', (req, res) => {
         knex('foodvendors')
         .insert({
           businessName: req.body.businessName,
+          lat: req.body.lat,
+          lng: req.body.lng,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           email: req.body.email,
