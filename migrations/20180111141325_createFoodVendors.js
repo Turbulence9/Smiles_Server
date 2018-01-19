@@ -2,8 +2,8 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('foodvendors',(t) => {
   t.increments();
   t.text('businessName');
-  t.decimal('lat');
-  t.decimal('lng');
+  t.text('lat');
+  t.text('lng');
   t.text('firstName');
   t.text('lastName');
   t.text('email');
