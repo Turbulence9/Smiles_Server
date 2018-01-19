@@ -13,6 +13,7 @@ exports.up = function(knex, Promise) {
   t.text('vendorLng');
   t.text('shelterLat');
   t.text('shelterLng');
+  t.text('vendorToShelter');
   t.text('pickupDeadline');
   t.text('status');
 });

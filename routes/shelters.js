@@ -4,6 +4,12 @@ const knex = require('../db/knex.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+router.get('/', (req, res) => {
+  knex('shelters')
+  .then((shelters) => {
+    res.send(shelters);
+  })
+})
 
 router.post('/signup', (req, res) => {
   knex('emails')
@@ -21,6 +27,7 @@ router.post('/signup', (req, res) => {
           lastName: req.body.lastName,
           email: req.body.email,
           phoneNumber: req.body.phoneNumber,
+          needFood: true,
           hashedPassword: hash,
         })
         .then(() => {

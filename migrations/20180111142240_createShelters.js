@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
   t.text('lastName');
   t.text('email');
   t.text('phoneNumber');
+  t.boolean('needFood');
   t.text('hashedPassword');
 });
 };
