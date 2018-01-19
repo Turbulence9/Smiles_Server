@@ -6,6 +6,9 @@ const saltRounds = 10;
 
 router.get('/', (req, res) => {
   knex('shelters')
+  .where({
+    needFood: true
+  })
   .then((shelters) => {
     res.send(shelters);
   })
