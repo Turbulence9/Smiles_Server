@@ -5,6 +5,9 @@ exports.up = function(knex, Promise) {
   t.text('businessName');
   t.text('shelterName');
   t.text('volunteerName');
+  t.text('businessEmail');
+  t.text('shelterEmail');
+  t.text('volunteerEmail');
   t.text('description');
   t.text('vendorLat');
   t.text('vendorLng');
