@@ -2,9 +2,20 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex.js');
 
+
 router.get('/', (req, res) => {
   knex('orders')
   .then(orders => {
+    res.send(orders);
+  });
+});
+
+router.get('/:email', (req, res) => {
+  knex('orders')
+  .where({
+    businessEmail : req.params.email
+  })
+  .then((orders) => {
     res.send(orders);
   });
 });
