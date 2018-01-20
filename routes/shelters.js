@@ -23,7 +23,7 @@ router.post('/signup', (req, res) => {
       .then((hash) => {
         knex('shelters')
         .insert({
-          shelterName: req.body.businessName,
+          shelterName: req.body.shelterName,
           lat: req.body.lat,
           lng: req.body.lng,
           firstName: req.body.firstName,
