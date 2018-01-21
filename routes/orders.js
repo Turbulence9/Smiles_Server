@@ -10,10 +10,20 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:email', (req, res) => {
+router.get('/foodvendors/:email', (req, res) => {
   knex('orders')
   .where({
     businessEmail : req.params.email
+  })
+  .then((orders) => {
+    res.send(orders);
+  });
+});
+
+router.get('/shelters/:email', (req, res) => {
+  knex('orders')
+  .where({
+    shelterEmail : req.params.email
   })
   .then((orders) => {
     res.send(orders);
