@@ -30,6 +30,16 @@ router.get('/shelters/:email', (req, res) => {
   });
 });
 
+router.get('/volunteers/:email', (req, res) => {
+  knex('orders')
+  .where({
+    volunteerEmail : req.params.email
+  }).first()
+  .then((order) => {
+    res.send(order);
+  });
+});
+
 router.get('/open', (req, res) => {
   knex('orders')
   .where({
