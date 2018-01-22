@@ -89,6 +89,19 @@ router.patch('/volunteer/:id', (req, res) => {
   });
 });
 
+router.patch('/status/:id', (req, res) => {
+  knex('orders')
+  .where({
+    id: req.params.id,
+  })
+  .update({
+    status : req.body.status,
+  })
+  .then(() => {
+    res.send('order updated')
+  });
+});
+
 router.delete('/:id', (req, res) => {
   knex('orders')
   .where({id: req.params.id})
