@@ -64,6 +64,21 @@ router.post('/', (req, res) => {
   });
 });
 
+router.patch('/volunteer/:id', (req, res) => {
+  knex('orders')
+  .where({
+    id: req.params.id,
+  })
+  .update({
+    volunteerName : req.body.volunteerName,
+    volunteerEmail: req.body.volunteerEmail,
+    status: 'pickup',
+  })
+  .then(() => {
+    res.send('order updated')
+  });
+});
+
 router.delete('/:id', (req, res) => {
   knex('orders')
   .where({id: req.params.id})
