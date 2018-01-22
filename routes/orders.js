@@ -57,7 +57,7 @@ router.post('/', (req, res) => {
     shelterLng: req.body.shelterLng,
     vendorToShelter: req.body.vendorToShelter,
     pickupDeadline : req.body.pickupDeadline,
-    status : 'awaiting volunteer',
+    status : 'Awaiting volunteer',
   })
   .then(() => {
     res.send('Order added');
@@ -72,7 +72,7 @@ router.patch('/volunteer/:id', (req, res) => {
   .update({
     volunteerName : req.body.volunteerName,
     volunteerEmail: req.body.volunteerEmail,
-    status: 'pickup',
+    status: 'Pickup',
   })
   .then(() => {
     res.send('order updated')
