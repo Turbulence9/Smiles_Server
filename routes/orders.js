@@ -30,7 +30,7 @@ router.get('/shelters/:email', (req, res) => {
   });
 });
 
-router.get('/volunteers', (req, res) => {
+router.get('/open', (req, res) => {
   knex('orders')
   .where({
     volunteerEmail : null
