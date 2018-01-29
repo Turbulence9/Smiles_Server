@@ -3,7 +3,7 @@ Smiles_Server
 <hr>
 Read more about the project at: https://github.com/Turbulence9/Smiles
 
-####Technologies:
+#### Technologies:
 * Node.JS
 * Express
 * Knex
